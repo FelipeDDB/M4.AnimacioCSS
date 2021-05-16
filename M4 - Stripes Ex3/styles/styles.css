@@ -1,0 +1,94 @@
+body {
+    background: white;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 3em;
+}
+
+/* Quitamos subrayado de los enlaces */
+a {
+    text-decoration: none;
+    color: white;
+}
+/* contenedor de las franjas definido como grid de 5 columna y 1 fila */
+.container {
+    display: grid;
+    height: 100vh;
+    grid-gap: 5px;
+    grid-template-columns: repeat(5, 20%);
+    overflow: hidden; /* oculta la capa durante el delay antes de desplegarse */
+}
+
+/* Estilo de las franjas */
+.stripe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* oculta la capa blanca inclinada fuera de su franja */
+}
+
+/* Aplica una capa blanca semitransparente e inclinada sobre cada franja */
+.in-stripe::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.1;
+    transform: skew(30deg);
+    transition: all 1s; /* Lo aplica a todas las propiedades que cambien */
+}
+/* Al pasar el ratón amplía el ancho de la capa blanca para conseguir el efecto */
+.in-stripe:hover::before {
+    left: -100%;
+    width: 300%;
+}
+
+/* Color de fondo y llamada a la animación inicial de cada una de las franjas */
+/* animation: nombre / duración / retraso */
+/* Aplicamos un retraso en la aparición de cada franja para conseguir el efecto del ejemplo (no se despliegan todas a la vez) */
+#divIT {
+    background-color: #244F75;
+    animation: izda-dcha 0.5s;
+}
+#divA {
+    background-color: #60BFBF;
+    animation: abajo-arriba 0.5s 0.2s;
+    animation-fill-mode: backwards;
+}
+#divCA {
+    background-color: #8C4B7E;
+    animation: arriba-abajo 0.5s 0.4s;
+    animation-fill-mode: backwards;
+}
+#divDE {
+    background-color: #F8BB44;
+    animation: abajo-arriba 0.5s 0.6s;
+    animation-fill-mode: backwards;
+}
+#divMY {
+    background-color: #F24B4B;
+    animation: dcha-izda 0.5s 0.8s;
+    animation-fill-mode: backwards;
+}
+
+/* Declaración de los keyframes de las animaciones iniciales para posicionar cada stripe en su posición */
+@keyframes izda-dcha {
+    0% {left: -100%;}
+    100%  {left: 0;}
+}
+@keyframes dcha-izda {
+    0% {left: 100%;}
+    100%  {left: 0;}
+}
+@keyframes abajo-arriba {
+    0% {top: 100%;}
+    100%  {top: 0;}
+}
+@keyframes arriba-abajo {
+    0% {top: -100%;}
+    100%  {top: 0;}
+}

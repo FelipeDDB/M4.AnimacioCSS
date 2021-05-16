@@ -1,0 +1,45 @@
+body {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 630px;
+    height: 630px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Espacio en que se moverá la pelota */
+.cuadrado {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background: white;
+    border: 5px solid black;
+}
+
+/* la imagen de la pelota se mueve según la suma de las animaciones horizontal+vertical */
+/* Parte desde la posición 0,0 dentro del cuadrado donde se mueve la pelora */
+.cuadrado img {
+    width: 60px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    animation: vertical 1s linear infinite alternate , horizontal 5s linear infinite alternate;
+    /* name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction */
+}
+@keyframes horizontal {
+    0% {left: 0%;}
+    100%  {left: 90%;}
+}
+@keyframes vertical {
+    0% {top: 0%;}
+    100% {top: 90%;}
+}
+

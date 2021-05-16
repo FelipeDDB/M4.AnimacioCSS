@@ -1,0 +1,62 @@
+body {
+    height: 100vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 630px;
+    height: 630px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadrado {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background: white;
+    border: 5px solid black;
+    /* overflow: hidden; */
+}
+
+/* Con los cambios de velocidad de la animación simulamos la gravedad */
+.cuadrado img {
+    width: 60px;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    animation: vertical 1s ease-in infinite alternate, horizontal 5s ease infinite alternate;
+    /* name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction */
+}
+
+@keyframes horizontal {
+    0% {left: 0%;}
+    100%  {left: 90%;}
+}
+/* Cambiando la relación alto/ancho simulamos que la pelota se deforma al golpear con el suelo */
+@keyframes vertical {
+    0% {top: 10%; height: 60px;}
+    100%{top: 93.5%; height: 40px;}
+}
+
+/* 
+.pelota {
+    width: 75px;
+    padding-bottom: 75px;
+    border-radius: 50%;
+    background: yellow;
+    position: relative;
+    top: 50px;
+    left: 0px;
+    animation: movimiento;
+    animation-duration: 10s;
+    animation-iteration-count: 2;
+    animation-timing-function:ease-out;
+}
+*/
+
